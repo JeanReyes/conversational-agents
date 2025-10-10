@@ -1,0 +1,91 @@
+{
+  "flowConfig": {
+    "id": "zombie-apocalypse-game",
+    "name": "Zombie Apocalypse Adventure",
+    "description": "Juego de aventura conversacional de supervivencia zombie",
+    "version": "1.0.0"
+  },
+  "theme": {
+    "genre": "zombie apocalypse survival",
+    "setting": "post-apocalyptic world",
+    "tone": "dramatic and immersive",
+    "artStyle": "pixel art retro gaming",
+    "colorScheme": "dark and gritty"
+  },
+  "gameConfig": {
+    "image": {
+      "defaultPrompt": "zombie apocalypse scene pixel art style",
+      "separator": "IMAGEN: ",
+      "style": "8-bit retro gaming aesthetics with limited color palette, blocky pixelated style"
+    },
+    "session": {
+      "initialContext": "zombie survival adventure",
+      "maxTurns": -1,
+      "trackMetrics": false
+    }
+  },
+  "uiMessages": {
+    "loading": {
+      "story": "Generando historia...",
+      "image": "Generando imagen...",
+      "action": "Procesando acción..."
+    },
+    "error": {
+      "storyGeneration": "Error al generar historia",
+      "imageGeneration": "Error al generar imagen",
+      "missingPrompt": "Falta el prompt para generar la imagen"
+    },
+    "placeholder": {
+      "story": "Describe que quieres hacer, adónde ir, qué examinar o cómo reaccionar..."
+    },
+    "buttons": {
+      "submit": "Actuar",
+      "newSession": "Nuevo Juego",
+      "continue": "Continuar"
+    }
+  },
+  "prompts": {
+    "initialStory": "Eres el narrador de un juego de aventura conversacional de supervivencia zombie en estilo pixel art.\n  \n  Genera la escena inicial del juego donde el jugador se encuentra en el inicio del apocalipsis zombie. Describe la situación de manera inmersiva y drámtica  en máximo 2 parrafor cortos.\n  Sé conciso y directo. Presenta el escenario actual y terminar SIEMPRE invitando al jugador a participar activamente preguntandole que quiere hacer, donde quiere ir, o que accion tomar. Usa frases como \"Qué decides hacer\"\n  \"Hacia donde te diriges\", \"Cómo reaccionas\" para involucrar al jugador.\n\n  IMPORTANTE: Al final, SIEMPRE incluye una línea separada que comience exactamente con \"IMAGEN:\" seguida de una descripción breve en ingles para generar una imagen pixel art de la escena inicial (máximo 50 palabras). Esta línea es OBLIGATORIA.",
+
+    "continueStory": "Eres el narrador de un juego de aventura conversacional de supervivencia zombie en estilo pixel art.\n  Historial de la conversacion: {historyText}\n\n  El jugador acaba de decir: \"{userMessage}\"\n  continua la historia basandote en la acción del jugador.\n\n  Se conciso y directo. Presenta la nueva situación actual y terminar SIEMPRE invitando al jugador a participar activamente preguntandole que quiere hacer, donde quiere ir, o que accion tomar. Usa frases como \"Qué decides hacer\", \"¿Qué examinas primero?\", \"Cómo reaccionas\", \"Hacia donde te diriges\" para involucrar al jugador.\n  IMPORTANTE: Al final, SIEMPRE incluye una línea separada que comience exactamente con \"IMAGEN:\" seguida de una descripción breve en ingles para generar una imagen pixel art de la escena actual (máximo 50 palabras). Esta línea es OBLIGATORIA.",
+
+    "generateImage": "Generate a pixel art style image 16:9 aspect {description} use 8-bit retro gaming aesthetics with limited color palette, blocky pixelated style, and clear definition. The image should be in landscape format (16:9 ratio)"
+  },
+  "metrics": {
+    "enabled": false,
+    "trackingFields": []
+  },
+  "aiModels": {
+    "textGeneration": {
+      "model": "gemini-2.5-flash-lite",
+      "temperature": 0.8,
+      "maxTokens": 800
+    },
+    "imageGeneration": {
+      "model": "gemini-2.5-flash-image-preview",
+      "style": "pixel art retro gaming",
+      "aspectRatio": "16:9"
+    }
+  },
+  "features": {
+    "saveSession": false,
+    "exportReport": false,
+    "shareResults": false,
+    "multipleScenarios": false,
+    "historicalData": false
+  },
+  "customComponents": {
+    "metricsDisplay": {
+      "enabled": false
+    },
+    "decisionHistory": {
+      "enabled": false
+    },
+    "reportGenerator": {
+      "enabled": false
+    }
+  }
+}
+
+
+

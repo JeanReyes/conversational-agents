@@ -1,0 +1,158 @@
+{
+  "flowConfig": {
+    "id": "business-strategy-simulator",
+    "name": "Business Strategy Simulator",
+    "description": "Simulador de decisiones empresariales con IA",
+    "version": "1.0.0"
+  },
+  "theme": {
+    "genre": "business simulation",
+    "setting": "corporate environment",
+    "tone": "professional and analytical",
+    "artStyle": "modern business graphics",
+    "colorScheme": "corporate blue and gray"
+  },
+  "gameConfig": {
+    "image": {
+      "defaultPrompt": "modern corporate office business meeting professional style",
+      "separator": "GRÁFICO: ",
+      "style": "professional business illustration, clean corporate design, charts and graphs"
+    },
+    "session": {
+      "initialContext": "business strategy simulation",
+      "maxTurns": 20,
+      "trackMetrics": true
+    }
+  },
+  "uiMessages": {
+    "loading": {
+      "story": "Analizando situación empresarial...",
+      "image": "Generando gráfico de análisis...",
+      "metrics": "Calculando KPIs..."
+    },
+    "error": {
+      "storyGeneration": "Error en análisis empresarial",
+      "imageGeneration": "Error al generar gráfico",
+      "missingPrompt": "Falta información para el análisis"
+    },
+    "placeholder": {
+      "story": "Describe tu decisión estratégica, qué área quieres analizar, o qué acción empresarial tomar..."
+    },
+    "buttons": {
+      "submit": "Ejecutar Decisión",
+      "newSession": "Nueva Simulación",
+      "viewMetrics": "Ver KPIs"
+    }
+  },
+  "prompts": {
+    "initialStory": `Eres un consultor empresarial experto que dirige una simulación de estrategia de negocios.
+
+Genera el escenario inicial donde el usuario es el CEO de una empresa mediana que enfrenta desafíos estratégicos importantes. Presenta la situación actual de la empresa de manera profesional y analítica en máximo 2 párrafos.
+
+Incluye datos específicos como:
+- Situación financiera actual
+- Principales desafíos del mercado
+- Oportunidades identificadas
+- Recursos disponibles
+
+Termina SIEMPRE preguntando qué decisión estratégica quiere tomar, qué área analizar, o qué acción implementar. Usa frases como "¿Qué estrategia decides implementar?", "¿En qué área te enfocarás primero?", "¿Cómo planeas abordar este desafío?"
+
+IMPORTANTE: Al final, SIEMPRE incluye una línea separada que comience exactamente con "GRÁFICO:" seguida de una descripción breve en inglés para generar un gráfico empresarial de la situación actual (máximo 50 palabras). Esta línea es OBLIGATORIA.`,
+
+    "continueStory": `Eres un consultor empresarial experto que dirige una simulación de estrategia de negocios.
+Historial de la simulación: {historyText}
+
+El CEO acaba de decidir: "{userMessage}"
+Analiza esta decisión y presenta las consecuencias, resultados y nueva situación empresarial.
+
+Incluye en tu respuesta:
+- Impacto de la decisión tomada
+- Métricas y KPIs relevantes
+- Nuevos desafíos o oportunidades
+- Recomendaciones estratégicas
+
+Sé profesional y analítico. Presenta la nueva situación empresarial y termina SIEMPRE preguntando por la siguiente decisión estratégica. Usa frases como "¿Cuál será tu próxima movida?", "¿Qué estrategia implementarás ahora?", "¿Cómo responderás a esta nueva situación?"
+
+IMPORTANTE: Al final, SIEMPRE incluye una línea separada que comience exactamente con "GRÁFICO:" seguida de una descripción breve en inglés para generar un gráfico empresarial de la situación actual (máximo 50 palabras). Esta línea es OBLIGATORIA.`,
+
+    "generateImage": `Generate a professional business illustration showing {description}. Use clean corporate design with charts, graphs, and modern office aesthetics. Include business metrics, KPI dashboards, or strategic diagrams. Professional color scheme with blues, grays, and whites. Clean, analytical style suitable for business presentations.`
+  },
+  "metrics": {
+    "enabled": true,
+    "trackingFields": [
+      {
+        "id": "revenue",
+        "name": "Ingresos",
+        "type": "currency",
+        "initialValue": 1000000,
+        "icon": "dollar-sign"
+      },
+      {
+        "id": "market_share",
+        "name": "Participación de Mercado",
+        "type": "percentage",
+        "initialValue": 15,
+        "icon": "trending-up"
+      },
+      {
+        "id": "employee_satisfaction",
+        "name": "Satisfacción Empleados",
+        "type": "percentage",
+        "initialValue": 75,
+        "icon": "users"
+      },
+      {
+        "id": "customer_retention",
+        "name": "Retención de Clientes",
+        "type": "percentage",
+        "initialValue": 80,
+        "icon": "heart"
+      },
+      {
+        "id": "innovation_index",
+        "name": "Índice de Innovación",
+        "type": "score",
+        "initialValue": 6.5,
+        "max": 10,
+        "icon": "lightbulb"
+      }
+    ]
+  },
+  "aiModels": {
+    "textGeneration": {
+      "model": "gemini-2.5-flash-lite",
+      "temperature": 0.7,
+      "maxTokens": 1000
+    },
+    "imageGeneration": {
+      "model": "gemini-2.5-flash-image-preview",
+      "style": "professional business graphics",
+      "aspectRatio": "16:9"
+    }
+  },
+  "features": {
+    "saveSession": true,
+    "exportReport": true,
+    "shareResults": true,
+    "multipleScenarios": true,
+    "historicalData": true
+  },
+  "customComponents": {
+    "metricsDisplay": {
+      "enabled": true,
+      "position": "sidebar",
+      "updateFrequency": "after_each_turn"
+    },
+    "decisionHistory": {
+      "enabled": true,
+      "maxEntries": 10
+    },
+    "reportGenerator": {
+      "enabled": true,
+      "formats": ["pdf", "json"]
+    }
+  }
+}
+
+
+
