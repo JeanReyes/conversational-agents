@@ -12,8 +12,8 @@ export class ServiceFactory {
     
     switch (serviceType) {
       case 'game-zombie':
-        const zombieConstants = await import('./services/game-zombie/constant');
-        const zombiePrompts = await import('./services/game-zombie/prompt');
+        const zombieConstants = await import('./config-agents/game-zombie/constant');
+        const zombiePrompts = await import('./config-agents/game-zombie/prompt');
         service = {
           constants: zombieConstants.UI_MESSAGES,
           config: zombieConstants.GAME_CONFIG,
@@ -23,8 +23,8 @@ export class ServiceFactory {
         break;
         
       case 'business-strategy':
-        const businessConstants = await import('./services/business-strategy/constant');
-        const businessPrompts = await import('./services/business-strategy/prompt');
+        const businessConstants = await import('./config-agents/business-strategy/constant');
+        const businessPrompts = await import('./config-agents/business-strategy/prompt');
         service = {
           constants: businessConstants.UI_MESSAGES,
           config: businessConstants.GAME_CONFIG,
@@ -35,8 +35,8 @@ export class ServiceFactory {
 
       case 'agent-resolutor':
         // por ahora solo vamos a usar este servicio de agent-resolutor luego lo cambiamos a conversation
-        const conversationConstants = await import('./services/agent-resolutor/constant');
-        const conversationPrompts = await import('./services/agent-resolutor/prompt');
+        const conversationConstants = await import('./config-agents/agent-resolutor/constant');
+        const conversationPrompts = await import('./config-agents/agent-resolutor/prompt');
         service = {
           constants: conversationConstants.UI_MESSAGES,
           config: conversationConstants.GAME_CONFIG,
@@ -46,8 +46,8 @@ export class ServiceFactory {
         break;
 
       case 'client-claim':
-        const clientClaimConstants = await import('./services/client-claim/constant');
-        const clientClaimPrompts = await import('./services/client-claim/prompt');
+        const clientClaimConstants = await import('./config-agents/client-claim/constant');
+        const clientClaimPrompts = await import('./config-agents/client-claim/prompt');
         service = {
           constants: clientClaimConstants.UI_MESSAGES,
           config: clientClaimConstants.GAME_CONFIG,
@@ -57,8 +57,8 @@ export class ServiceFactory {
         break;
 
       case 'desperate-client':
-        const desperateClientConstants = await import('./services/desperate-client/constant');
-        const desperateClientPrompts = await import('./services/desperate-client/prompt');
+        const desperateClientConstants = await import('./config-agents/desperate-client/constant');
+        const desperateClientPrompts = await import('./config-agents/desperate-client/prompt');
         service = {
           constants: desperateClientConstants.UI_MESSAGES,
           config: desperateClientConstants.GAME_CONFIG,
@@ -68,8 +68,8 @@ export class ServiceFactory {
         break;
 
       case 'angry-client':
-        const angryClientConstants = await import('./services/angry-client/constant');
-        const angryClientPrompts = await import('./services/angry-client/prompt');
+        const angryClientConstants = await import('./config-agents/angry-client/constant');
+        const angryClientPrompts = await import('./config-agents/angry-client/prompt');
         service = {
           constants: angryClientConstants.UI_MESSAGES,
           config: angryClientConstants.GAME_CONFIG,

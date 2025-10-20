@@ -2,11 +2,10 @@ import { Image } from "@/components/ai-elements/image";
 import { Loader } from "@/components/ai-elements/loader";
 import { Message, MessageContent } from "@/components/ai-elements/message";
 import { Response } from "@/components/ai-elements/response";
-import { UI_MESSAGES } from "@/lib/services/game-zombie/constant";
+import { UI_MESSAGES } from "@/lib/config-agents/game-zombie/constant";
 import type { GameMessage as GameMessageType, ServiceType } from "@/lib/types";
 
 export function GameMessage({ message, serviceType }: { message: GameMessageType, serviceType: ServiceType }) {
-  console.log('serviceType', serviceType);
   const { image, content, role, imageLoading } = message;
   //const imageLoading = true;
   return (

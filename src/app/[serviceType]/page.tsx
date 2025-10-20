@@ -3,12 +3,13 @@ import { ServiceType } from '@/lib/types';
 import { GameInterface } from '@/components/GameInterface';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     serviceType: ServiceType;
-  };
+  }>;
 }
 
-export default async function ServicePage({ params: { serviceType } }: PageProps) {
+export default async function ServicePage({ params }: PageProps) {
+  const { serviceType } = await params;
 
   return (
     <GameProvider initialServiceType={serviceType}>

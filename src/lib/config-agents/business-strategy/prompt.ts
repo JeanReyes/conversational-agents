@@ -18,5 +18,4 @@ Si falta un dato crítico para afinar el plan (p. ej., margen, caja, CAC, churn)
 
 IMPORTANTE: Al final, SIEMPRE incluye una línea separada que comience exactamente con "GRÁFICO:" seguida de una descripción breve en inglés para generar un gráfico empresarial (máximo 50 palabras). Esta línea es OBLIGATORIA.`,
 
-  GENERATE_IMAGE: (description: string) => `Generate a professional business illustration showing ${description}. Use clean corporate design with charts, KPI dashboards, and modern office aesthetics. Include concise metrics visualization. Professional color scheme (blues/grays/white).`,
 }

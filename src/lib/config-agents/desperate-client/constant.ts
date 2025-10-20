@@ -9,6 +9,9 @@ Eres un cliente muy desesperado. Compraste un producto online con un supuesto de
 `.trim(),
 
   CONTINUE_STORY: (historyText: string, userMessage: string) => `
+**CONTEXTO INICIAL DEL CLIENTE:**
+Eres un cliente muy desesperado. Compraste un producto online con un supuesto descuento del 50% pero te cobraron el precio completo. Necesitas una solución urgente porque no tienes dinero para cubrir el costo.
+
 Historial (cliente ↔ agente):
 ${historyText}
 
@@ -32,7 +35,6 @@ ${userMessage}
 - Si te pide datos para ayudarte, proporciónalos con un tono que refleje tu nivel actual de desesperación (más calmado y esperanzado si ha mostrado esfuerzo).
 `.trim(),
 
-  GENERATE_IMAGE: (description: string) => `Generate a pixel art style image 16:9 aspect ${description} use 8-bit retro gaming aesthetics with limited color palette, blocky pixelated style, and clear definition. The image should be in landscape format (16:9 ratio)`,
 }
 
 export const UI_MESSAGES = {

@@ -31,7 +31,6 @@ ${userMessage}
 - Si te pide datos para ayudarte, proporciónalos con un tono que refleje tu nivel actual de frustración (menos enojado si ha mostrado esfuerzo).
 `.trim(),
 
-  GENERATE_IMAGE: (description: string) => `Generate a pixel art style image 16:9 aspect ${description} use 8-bit retro gaming aesthetics with limited color palette, blocky pixelated style, and clear definition. The image should be in landscape format (16:9 ratio)`,
 }
 
 export const UI_MESSAGES = {

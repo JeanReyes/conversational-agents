@@ -1,13 +1,15 @@
 import { ServiceHeader } from '@/app/components/ServiceHeader';
 import { ServiceType } from '@/lib/types';
 
-export default function ServiceLayout({
+export default async function ServiceLayout({
   children,
-  params: { serviceType },
+  params,
 }: {
   children: React.ReactNode;
-  params: { serviceType: ServiceType };
+  params: Promise<{ serviceType: ServiceType }>;
 }) {
+  const { serviceType } = await params;
+  
   return (
     <div className="font-sans h-screen flex flex-col mx-auto overflow-hidden">
       <ServiceHeader serviceType={serviceType} />
