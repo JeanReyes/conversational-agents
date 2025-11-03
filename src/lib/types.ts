@@ -35,7 +35,25 @@ export interface GenerateStoryResponse {
 }
 
 // Nuevos tipos para el sistema dinámico
-export type ServiceType = 'game-zombie' | 'business-strategy' | 'agent-resolutor' | 'client-claim' | 'desperate-client' | 'angry-client';
+export type ServiceType = 
+  | 'game-zombie' 
+  | 'business-strategy' 
+  | 'agent-resolutor'
+  | 'agent-standar'
+  | 'client-claim' 
+  | 'desperate-client' 
+  | 'angry-client' 
+  | 'response-tools'
+  | 'promocion-no-respetada'
+  | 'retraso-entrega'
+  | 'pedido-cancelado'
+  | 'producto-incorrecto'
+  | 'producto-defectuoso'
+  | 'dificultad-devolucion'
+  | 'reembolso-tardio'
+  | 'cobro-indebido'
+  | 'problema-garantia'
+  | 'mala-atencion';
 
 // NUEVOS TIPOS PARA ETAPAS DE CONVERSACIÓN
 export enum ConversationStage {
@@ -66,7 +84,7 @@ export interface GameService {
   };
   prompts?: {
     INITIAL_STORY: string;
-    CONTINUE_STORY: (historyText: string, userMessage: string) => string;
+    CONTINUE_STORY: (historyText: string, userMessage: string, toolResultsContext?: string) => string;
     GENERATE_IMAGE?: (description: string) => string;
   };
   type: ServiceType;

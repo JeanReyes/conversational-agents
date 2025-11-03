@@ -1,8 +1,8 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { GameService, ServiceType } from './types';
-import { ServiceFactory } from './service-factory';
+import { GameService, ServiceType } from '../types';
+import { ServiceFactory } from '../service-factory';
 
 interface GameContextType {
   service: GameService | null;

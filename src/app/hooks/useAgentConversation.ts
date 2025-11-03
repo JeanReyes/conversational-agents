@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useGameService } from '@/lib/game-context';
+import { useGameService } from '@/lib/providers/game-context';
 import { StageHelper } from '@/lib/config-agents/agent-resolutor/stage-helper';
 import { DEFAULT_NO_RESPONSE_CONFIG } from '@/lib/types';  // ← NUEVO
 
@@ -29,6 +29,11 @@ export function useAgentConversation(
   const [waitingForNoResponse, setWaitingForNoResponse] = useState<boolean>(false);
   const [datasetSaved, setDatasetSaved] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
+
+  console.log('initialServiceType', initialServiceType);
+  console.log('mode', mode);
+  
+  
   /**
    * Decide aleatoriamente si el cliente debe responder o no
    * Retorna true si NO debe responder (simular desconexión)

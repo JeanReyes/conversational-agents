@@ -3,7 +3,7 @@ import { generateText } from "ai";
 
 import { type NextRequest, NextResponse } from "next/server";
 
-import { GAME_PROMPTS } from "@/lib/config-agents/game-zombie/prompt";
+import { GAME_PROMPTS } from "@/lib/config-agents/clients/game-zombie/prompt";
 
 import { GenerateImageRequest } from "@/lib/types";
 

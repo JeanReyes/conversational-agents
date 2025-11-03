@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { useGameService } from '@/lib/game-context';
-import { useSharedConversation } from "@/lib/shared-conversation-context";
+import { useGameService } from '@/lib/providers/game-context';
 
 import type { GameMessage, GenerateStoryResponse } from "@/lib/types";	
 
 export function useGame() {
   const { service, serviceType, isLoading: serviceLoading } = useGameService();
-  const sharedConversation = useSharedConversation();
+
   const [messages, setMessages] = useState<GameMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -39,9 +38,7 @@ export function useGame() {
       };
       
       setMessages([message]);
-      if (sharedConversation && serviceType) {
-        sharedConversation.addSharedMessage(message, serviceType);
-      }
+
       generateImage(message.id, data.imagePrompt);
 
     } catch (error) {
@@ -49,7 +46,7 @@ export function useGame() {
     } finally {
       setIsLoading(false);
     }
-  }, [serviceType, service, sharedConversation]);
+  }, [serviceType, service]);
 
 
   const generateImage = async (messageId: string, imagePrompt: string) => {
@@ -107,14 +104,10 @@ export function useGame() {
     setIsLoading(true);
     setInput("");
     setMessages(prevMessage => [...prevMessage, userMessage]);
-    if (sharedConversation && serviceType) {
-      sharedConversation.addSharedMessage(userMessage, serviceType);
-    }
+
 
     try {
-      const conversationHistory = sharedConversation 
-        ? [...sharedConversation.sharedMessages, userMessage] 
-        : [...messages, userMessage];
+      const conversationHistory = [...messages, userMessage];
 
       const response = await fetch("/api/generate-story", {
         method: "POST",
@@ -142,9 +135,7 @@ export function useGame() {
       };
       
       setMessages(prevMessage => [...prevMessage, assistantMessage]);
-      if (sharedConversation && serviceType) {
-        sharedConversation.addSharedMessage(assistantMessage, serviceType);
-      }
+
       generateImage(messageId, data.imagePrompt);
     } catch (error) {
       console.error(error);

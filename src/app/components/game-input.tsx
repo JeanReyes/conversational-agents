@@ -1,7 +1,7 @@
 import { PromptInput, PromptInputSubmit, PromptInputTextarea } from "@/components/ai-elements/prompt-input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { UI_MESSAGES } from "@/lib/config-agents/game-zombie/constant";
+import { UI_MESSAGES } from "@/lib/config-agents/clients/game-zombie/constant";
 
 interface GameInputProps {
   input: string;

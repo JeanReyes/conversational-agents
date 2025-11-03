@@ -1,4 +1,4 @@
-import { GameProvider } from '@/lib/game-context';
+import { GameProvider } from '@/lib/providers/game-context';
 import { ServiceType } from '@/lib/types';
 import { GameInterface } from '@/components/GameInterface';
 
